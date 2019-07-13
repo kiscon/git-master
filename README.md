@@ -29,9 +29,9 @@ Git是目前世界上最先进的分布式版本控制系统。
 
 #### 设置用户名和邮箱
 
-  git config --global user.email "you@example.com"
+- git config --global user.email "you@example.com"
 
-  git config --global user.name "Your Name"
+- git config --global user.name "Your Name"
 
 ### 分支的使用
 
@@ -58,6 +58,10 @@ Git是目前世界上最先进的分布式版本控制系统。
 
 - git push origin  -d 分支名称 删除远程分支
 
+- git config --list 查看配置
+
+- gitk 内建的图形化git
+
 ### tag号操作常用命令
 
 - git tag -a '0.3.0' -m '0.3.0版本' 	打tag号
@@ -67,7 +71,9 @@ Git是目前世界上最先进的分布式版本控制系统。
 - git push origin refs/tags/v.0.3:refs/tags/0.3.0
 - git push origin :refs/tags/v.0.3
 
-### 更换远程地址
+### remote
+
+`git remote`命令管理一组跟踪的存储库
 
 git remote -v
 
@@ -77,7 +83,11 @@ git remote set-url origin + 新的仓库地址
 
 - 更换远程仓库
 
-### log常用
+git remote update origin -p(--prune)
+
+- 获取远程分支列表
+
+### log
 
 git log
 
@@ -111,8 +121,53 @@ git log -p 文件名
 
 - 查看某个文件的修改内容
 
-### git add
+git reflog
+
+- 查看所有的操作信息记录，包括回退版本的信息
+
+### add
 
 git add -A
 
 - 是将所有的文件提交到仓库的暂存区里面
+
+git add .
+
+git add *
+
+- 将当前目录的所有修改添加到暂存区
+
+### 子模块
+
+1.在现有仓库中增加子模块：
+
+ git submodule add + 地址
+
+- 查看上面命令执行后现有仓库根目录有哪些变化 ：增加了1个文件和一个目录：.gitmodules和DbConnector文件夹
+
+2.更新子模块的devlop分支
+
+git submodule foreach git pull origin devlop
+
+### 回退和反做
+
+git reset --hard + 提交的版本号
+
+- 由当前版本回退到之前的任意版本
+- git reset --hard HEAD^ 回退上个版本
+
+git revert -n + 需要反做的版本号
+
+git checkout --  文件名
+
+- 丢弃工作区的修改
+
+**区别**
+
+1. git reset的作用是修改HEAD的位置，即将HEAD指向的位置改变为之前存在的某个版本
+
+2. git revert的作用通过反做创建一个新的版本，这个版本的内容与我们要回退到的目标版本一样，但是HEAD指针是指向这个新生成的版本，而不是目标版本。
+
+
+
+学习地址：https://www.yiibai.com/git
