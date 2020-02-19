@@ -147,7 +147,9 @@ git add *
 
 2.更新子模块的devlop分支
 
-git submodule foreach git pull origin devlop
+- 初始化子模块：git submodule init 
+-  更新子模块：git submodule update
+- 拉取所有子模块：git submodule foreach git pull origin devlop
 
 ### 回退和反做
 
