@@ -4,7 +4,7 @@ Git是目前世界上最先进的分布式版本控制系统。
 
 工作原理 / 流程：
 
-![img](/img/流程图.png)
+![img](./img/流程图.png)
 
 - Workspace：工作区
 - Index / Stage：暂存区
@@ -167,9 +167,24 @@ git checkout --  文件名
 **区别**
 
 1. git reset的作用是修改HEAD的位置，即将HEAD指向的位置改变为之前存在的某个版本
-
 2. git revert的作用通过反做创建一个新的版本，这个版本的内容与我们要回退到的目标版本一样，但是HEAD指针是指向这个新生成的版本，而不是目标版本。
 
+### 工作流
+
+**在Git中有以下[几种常见工作流](https://www.cnblogs.com/butterflybay/p/10348011.html)**
+
+- 集中式工作流
+  - 对于集中式工作流，最好是使用[rebase ](http://gitbook.liuhui998.com/4_2.html)而不是生成一个合并提交
+- 功能开发工作流
+- Gitflow工作流
+  - `develop`常驻分支，功能分支和提测分支都从此分支拉取。用于日常开发，包括代码优化、功能性开发。
+  - `master`常驻分支，用于归档已上线代码，热修复分支从此分支拉取。每个版本上线后需在此分支打一个 tag 来标记版本。
+  - `feature`功能开发和提测分支，用完即删。从develop分支拉取，特性开发会在其上进行，开发完毕合后并到develop分支。
+  - `release`大版本提测分支，用完即删。分支从develop分支拉取，用于回归测试，完成后打tag并合入master和develop。
+  - `hotfixes`热修复分支，用于紧急修复线上 bug。修复后打tag并合入master和develop。
+- Forking工作流
+
+### git教程
 
 
 学习地址：https://www.yiibai.com/git
