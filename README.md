@@ -171,11 +171,12 @@ git checkout --  文件名
 
 ### 工作流
 
-**在Git中有以下[几种常见工作流](https://www.cnblogs.com/butterflybay/p/10348011.html)**
+在Git中有以下[几种常见工作流](https://www.cnblogs.com/butterflybay/p/10348011.html)
 
 - 集中式工作流
   - 对于集中式工作流，最好是使用[rebase ](http://gitbook.liuhui998.com/4_2.html)而不是生成一个合并提交
 - 功能开发工作流
+  - 这种工作流关注功能开发，不直接往master提交代码保证它是稳定并且干净的，而是从master拉取feature分支进行功能开发，团队成员根据分工拉取不同的功能分支来进行不同的功能开发，这样就可以完全隔离开每个人的工作。当功能开发完成后，会向master分支发起Pull Request，只有审核通过的代码才真正允许合入master，这样就加强了团队成员之间的代码交流，也就是我们常说的Code Review。
 - Gitflow工作流
   - `develop`常驻分支，功能分支和提测分支都从此分支拉取。用于日常开发，包括代码优化、功能性开发。
   - `master`常驻分支，用于归档已上线代码，热修复分支从此分支拉取。每个版本上线后需在此分支打一个 tag 来标记版本。
@@ -183,6 +184,23 @@ git checkout --  文件名
   - `release`大版本提测分支，用完即删。分支从develop分支拉取，用于回归测试，完成后打tag并合入master和develop。
   - `hotfixes`热修复分支，用于紧急修复线上 bug。修复后打tag并合入master和develop。
 - Forking工作流
+  - 常用于开源项目，它有一个公开的中央仓库，其他贡献者可以Fork（克隆）这个仓库作为你自己的私有仓库，开源项目维护者可以直接往中央仓库push代码，而代码贡献者只能将代码push到自己的私有仓库，只有项目维护者接受代码贡献者往中央仓库发起的pull request才会真正合入。
+ 
+
+### git diff查看本地改动
+
+- git diff 
+  - 可以查看本地的改动，即git status看到的文件的具体改动
+- git diff commit-id1 commit-id2 --stat
+  - 这个指令可以看两个版本之间有哪些文件改动
+- git diff branch1 branch2 --stat
+  - 这个指令可以看两个分支之间有哪些文件差异
+- git diff tag1 tag2 --stat
+  - 这个指令可以看两个tag之间有哪些文件差异或者改动
+- git log file
+  - 可以看到一个文件的改动，以commit的形式展现
+- git log -p file
+  - 可以看到具体一个文件的历史改动记录
 
 ### git教程
 
