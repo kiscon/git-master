@@ -4,7 +4,7 @@ Git是目前世界上最先进的分布式版本控制系统。
 
 工作原理 / 流程：
 
-![img](./img/流程图.png)
+![img](./img/flow-chart.png)
 
 - Workspace：工作区
 - Index / Stage：暂存区
