@@ -4,7 +4,7 @@ Git是目前世界上最先进的分布式版本控制系统。
 
 工作原理 / 流程：
 
-![img](./img/flow-chart.png)
+![img](https://github.com/kiscon/git-master/blob/master/img/flow-chart.png)
 
 - Workspace：工作区
 - Index / Stage：暂存区
@@ -201,6 +201,14 @@ git checkout --  文件名
   - 可以看到一个文件的改动，以commit的形式展现
 - git log -p file
   - 可以看到具体一个文件的历史改动记录
+
+### cherry-pick
+  git cherry-pick可以理解为”挑拣”提交，可以将A分支的某一次提交合入到本地当前分支上，那么就要使用git cherry-pick + commitId了。
+
+  - 遇到冲突时
+    - 先解决冲突
+    - git add 将解决了冲突的文件添加到暂存区
+    - git cherry-pick --continue就行
 
 ### git教程
 
