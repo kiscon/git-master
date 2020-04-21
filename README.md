@@ -210,7 +210,23 @@ git checkout --  文件名
     - git add 将解决了冲突的文件添加到暂存区
     - git cherry-pick --continue就行
 
-### git教程
+### fetch
+  从远程获取最新版本到本地（只会将本地库所关联的远程库的commit id更新至最新），不会自动merge。
 
+![img](https://github.com/kiscon/git-master/blob/master/img/fetch-pull.jpg)
+
+- 与git pull 区别
+  - git pull：操作是将本地仓库和远程仓库（本地的）更新到远程的最新版本。
+  - git pull = git fetch + git merge
+  - git pull的运行过程：首先，基于本地的FETCH_HEAD记录，比对本地的FETCH_HEAD记录与远程仓库的版本号，然后git fetch 获得当前指向的远程分支的后续版本的数据，然后再利用git merge将其与本地的当前分支合并。（FETCH_HEAD：是一个版本链接，记录在本地的一个文件中，指向着目前已经从远程仓库取下来的分支的末端版本。）
+ 
+- git fetch origin dev
+  - 执行上命令，会切换到`* branch  dev   -> FETCH_HEAD`
+  - 指定远程remote和FETCH_HEAD，并且只拉取dev分支的提交。
+
+- git merge origin/dev 
+  - 合并远程仓库（本地的）到本地仓库
+
+### git教程
 
 学习地址：https://www.yiibai.com/git
