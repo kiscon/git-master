@@ -79,6 +79,10 @@ git remote -v
 
 - 查看当前的远程仓库
 
+git remote add origin + 仓库地址
+
+- 添加远程仓库地址
+
 git remote set-url origin + 新的仓库地址
 
 - 更换远程仓库
@@ -124,6 +128,11 @@ git log -p 文件名
 git reflog
 
 - 查看所有的操作信息记录，包括回退版本的信息
+
+git log file
+
+- 可以看到一个文件的改动，以commit的形式展现
+
 
 ### add
 
@@ -197,10 +206,6 @@ git checkout --  文件名
   - 这个指令可以看两个分支之间有哪些文件差异
 - git diff tag1 tag2 --stat
   - 这个指令可以看两个tag之间有哪些文件差异或者改动
-- git log file
-  - 可以看到一个文件的改动，以commit的形式展现
-- git log -p file
-  - 可以看到具体一个文件的历史改动记录
 
 ### cherry-pick
   git cherry-pick可以理解为”挑拣”提交，可以将A分支的某一次提交合入到本地当前分支上，那么就要使用git cherry-pick + commitId了。
